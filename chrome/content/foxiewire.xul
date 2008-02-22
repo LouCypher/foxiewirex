@@ -25,6 +25,7 @@
   <menupopup id="contentAreaContextMenu">
     <menuitem
       id="context-foxiewire-link"
+      class="context-foxiewire menuitem-iconic"
       label="&foxiewire.sendLink.label; FoxieWire"
       insertafter="context-bookmarklink"
       oncommand="FoxieWire.submit(gContextMenu.linkURL);"
@@ -33,6 +34,7 @@
 
     <menuitem
       id="context-foxiewire-page"
+      class="context-foxiewire menuitem-iconic"
       label="&foxiewire.sendPage.label; FoxieWire"
       insertafter="context-bookmarkpage"
       oncommand="FoxieWire.submit(content.document.documentURI);"
@@ -41,6 +43,7 @@
 
     <menuitem
       id="context-foxiewire-frame"
+      class="context-foxiewire menuitem-iconic"
       label="&foxiewire.sendFrame.label; FoxieWire"
       insertafter="frame"
       oncommand="FoxieWire.submit(gContextMenu.target.ownerDocument.documentURI);"
