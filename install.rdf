@@ -6,7 +6,7 @@
   <Description about="urn:mozilla:install-manifest">
     <em:id>foxiewire@foxiewire.com</em:id>
     <em:name>FoxieWire</em:name>
-    <em:version>0.1.2.2008022201</em:version>
+    <em:version>0.1.2.2008022301</em:version>
     <em:description>Send a web page, link, or frame to FoxieWire.</em:description>
     <em:creator>FoxieWire</em:creator>
     <em:contributor>LouCypher - http://loucypher.wordpress.com/</em:contributor>
