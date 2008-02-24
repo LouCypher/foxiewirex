@@ -1,5 +1,25 @@
 var FoxieWire = {
 
+  URL: "http://www.foxiewire.com/submit.php?sourceid=FoxieWire+Extension&url=",
+
+  get pref() {
+    return Components.classes["@mozilla.org/preferences-service;1"]
+                     .getService(Components.interfaces.nsIPrefBranch)
+                     .getBranch("extensions.FoxieWire.");
+  },
+
+  get openInTab() {
+    return this.pref.getBoolPref("openInTab");
+  },
+
+  get loadInBackground() {
+    switch (this.pref.getIntPref("openInTab.loadInBackground")) {
+      case 0: return false;
+      case 1: return true;
+      default: return null;
+    }
+  },
+
   isValidScheme: function foxiewire_isValidScheme(aProtocol) {
     var reg = new RegExp("^https?|^ftp", "i");
     return reg.test(aProtocol);
@@ -7,9 +27,12 @@ var FoxieWire = {
 
   submit: function foxiewire_submit(aURL) {
     if (this.isValidScheme(aURL)) {
-      gBrowser.loadOneTab("http://www.foxiewire.com/submit.php?url=" +
-                          encodeURIComponent(aURL) +
-                          "&sourceid=FoxieWire+Extension")
+      if (this.openInTab) {
+        gBrowser.loadOneTab(this.URL + encodeURIComponent(aURL),
+                            null, null, null, this.loadInBackground);
+      } else {
+        loadURI(this.URL + encodeURIComponent(aURL));
+      }
     } else {
       var STRINGS = document.getElementById("foxiewire-strings");
       var scheme = [aURL.match(/^\S[^\:]+\:/).toString()];
