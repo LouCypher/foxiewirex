@@ -1,5 +1,0 @@
-#labels Phase-QA
-== To do list ==
-  * ~~Open tab preferences~~ ([http://code.google.com/p/foxiewirex/source/detail?r=8 rev. 8])
-  * Pref dialog
-  * [https://addons.mozilla.org/addon/4287 Split Browser] integration
