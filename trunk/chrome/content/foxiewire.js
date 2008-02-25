@@ -8,12 +8,12 @@ var FoxieWire = {
                      .getBranch("extensions.FoxieWire.");
   },
 
-  get openInTab() {
-    return this.pref.getBoolPref("openInTab");
+  get prefOpen() {
+    return this.pref.getIntPref("openSubmit");
   },
 
-  get loadInBackground() {
-    switch (this.pref.getIntPref("openInTab.loadInBackground")) {
+  get prefBackgroundTab() {
+    switch (this.pref.getIntPref("backgroundTab")) {
       case 0: return false;
       case 1: return true;
       default: return null;
@@ -25,15 +25,33 @@ var FoxieWire = {
     return reg.test(aProtocol);
   },
 
+  openPrefs: function foxiewire_openPrefs() {
+    openDialog("chrome://foxiewire/content/options.xul",
+               "foxiewire-config",
+               "chrome, dialog, centerscreen");
+  },
+
   submit: function foxiewire_submit(aURL) {
     if (this.isValidScheme(aURL)) {
-      if (this.openInTab) {
-        gBrowser.loadOneTab(this.URL + encodeURIComponent(aURL),
-                            null, null, null, this.loadInBackground);
-      } else {
-        loadURI(this.URL + encodeURIComponent(aURL));
+      switch (this.prefOpen) {
+        case 0: // current tab
+          loadURI(this.URL + encodeURIComponent(aURL));
+          break;
+        case 2: // new window
+          window.openDialog(getBrowserURL(), "_blank", "chrome,all,dialog=no",
+                            this.URL + encodeURIComponent(aURL));
+          break;
+        case 3: // split browser
+          if (typeof SplitBrowser == "object") {
+            SplitBrowser.addSubBrowser(this.URL + encodeURIComponent(aURL), null,
+                                       this.pref.getIntPref("SplitBrowser.position"))
+            break;
+          }
+        default: // new tab
+          gBrowser.loadOneTab(this.URL + encodeURIComponent(aURL),
+                              null, null, null, this.prefBackgroundTab);
       }
-    } else {
+    } else { // unsupported protocol
       var STRINGS = document.getElementById("foxiewire-strings");
       var scheme = [aURL.match(/^\S[^\:]+\:/).toString()];
       var string = STRINGS.getFormattedString("invalidScheme", scheme);

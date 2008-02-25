@@ -17,10 +17,19 @@
       id="foxiewire-button"
       label="FoxieWire"
       tooltiptext="&foxiewire.sendPage.label; FoxieWire"
-      oncommand="FoxieWire.submit(content.document.documentURI);"
+      oncommand="if(event.shiftKey) FoxieWire.openPrefs(); else FoxieWire.submit(content.document.documentURI);"
+      onclick="if (event.button == 1) FoxieWire.openPrefs();"
       onmouseover="FoxieWire.setStatus(content.document.documentURI);"
       onmouseout="FoxieWire.setStatus('');" />
   </toolbarpalette>
+
+  <menupopup id="menu_ToolsPopup">
+    <menuitem
+      label="&foxiewire.config.title;..."
+      class="context-foxiewire menuitem-iconic"
+      insertafter="menu_preferences"
+      oncommand="FoxieWire.openPrefs();" />
+  </menupopup>
 
   <menupopup id="contentAreaContextMenu">
     <menuitem
@@ -28,7 +37,8 @@
       class="context-foxiewire menuitem-iconic"
       label="&foxiewire.sendLink.label; FoxieWire"
       insertafter="context-bookmarklink"
-      oncommand="FoxieWire.submit(gContextMenu.linkURL);"
+      oncommand="if(event.shiftKey) FoxieWire.openPrefs(); else FoxieWire.submit(gContextMenu.linkURL);"
+      onclick="if (event.button == 1) FoxieWire.openPrefs();"
       onmouseover="FoxieWire.setStatus(gContextMenu.linkURL);"
       onmouseout="FoxieWire.setStatus('');" />
 
@@ -37,7 +47,8 @@
       class="context-foxiewire menuitem-iconic"
       label="&foxiewire.sendPage.label; FoxieWire"
       insertafter="context-bookmarkpage"
-      oncommand="FoxieWire.submit(content.document.documentURI);"
+      oncommand="if(event.shiftKey) FoxieWire.openPrefs(); else FoxieWire.submit(content.document.documentURI);"
+      onclick="if (event.button == 1) FoxieWire.openPrefs();"
       onmouseover="FoxieWire.setStatus(content.document.documentURI);"
       onmouseout="FoxieWire.setStatus('');" />
 
@@ -46,7 +57,8 @@
       class="context-foxiewire menuitem-iconic"
       label="&foxiewire.sendFrame.label; FoxieWire"
       insertafter="frame"
-      oncommand="FoxieWire.submit(gContextMenu.target.ownerDocument.documentURI);"
+      oncommand="if(event.shiftKey) FoxieWire.openPrefs(); else FoxieWire.submit(gContextMenu.target.ownerDocument.documentURI);"
+      onclick="if (event.button == 1) FoxieWire.openPrefs();"
       onmouseover="FoxieWire.setStatus(gContextMenu.target.ownerDocument.documentURI);"
       onmouseout="FoxieWire.setStatus('');" />
 
