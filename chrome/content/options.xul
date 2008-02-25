@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://foxiewire/locale/foxiewire.dtd">
+
+<prefwindow
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  id="foxiewire-config"
+  title="&foxiewire.config.title;">
+
+  <prefpane id="prefpane-tab">
+
+    <preferences>
+      <preference id="extensions.FoxieWire.openSubmit"
+                  name="extensions.FoxieWire.openSubmit"
+                  type="int" />
+      <preference id="extensions.FoxieWire.backgroundTab"
+                  name="extensions.FoxieWire.backgroundTab"
+                  type="int" />
+      <preference id="extensions.FoxieWire.SplitBrowser.position"
+                  name="extensions.FoxieWire.SplitBrowser.position"
+                  type="int" />
+    </preferences>
+
+    <hbox>
+      <groupbox flex="1">
+        <label>&foxiewire.config.newPagesIn.label;</label>
+        <radiogroup id="open-pref"
+                    preference="extensions.FoxieWire.openSubmit">
+          <radio id="open-current-tab"
+                 label="&foxiewire.config.currentTab.label;"
+                 value="0" />
+          <radio id="open-new-tab"
+                 label="&foxiewire.config.newTab.label;"
+                 value="1" />
+          <radio id="open-new-window"
+                 label="&foxiewire.config.newWindow.label;"
+                 value="2" />
+          <radio id="open-split-browser"
+                 label="&foxiewire.config.splitBrowser.label;"
+                 value="3" />
+        </radiogroup>
+      </groupbox>
+    </hbox>
+
+    <hbox>
+      <vbox flex="1">
+        <groupbox>
+          <caption label="&foxiewire.config.tabFocus.caption;" />
+          <radiogroup id="tab-focus-pref"
+                      preference="extensions.FoxieWire.backgroundTab">
+            <radio label="&foxiewire.config.selectTab.label;" value="0" />
+            <radio label="&foxiewire.config.backgroundTab.label;" value="1" />
+            <radio label="&foxiewire.config.appDefault.label;" value="2" />
+          </radiogroup>
+        </groupbox>
+      </vbox>
+
+      <vbox>
+        <groupbox id="split-browser-groupbox">
+          <caption label="&foxiewire.config.SplitBrowser.caption;" />
+          <radiogroup id="split-browser-pref"
+                      preference="extensions.FoxieWire.SplitBrowser.position">
+            <radio label="&foxiewire.config.splitTop.label;" value="4" />
+            <radio label="&foxiewire.config.splitRight.label;" value="2" />
+            <radio label="&foxiewire.config.splitLeft.label;" value="1" />
+            <radio label="&foxiewire.config.splitBottom.label;" value="8" />
+          </radiogroup>
+        </groupbox>
+      </vbox>
+    </hbox>
+
+  </prefpane>
+
+  <script type="application/x-javascript" src="options.js" />
+
+</prefwindow>
+

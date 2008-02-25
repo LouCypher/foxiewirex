@@ -1,4 +1,26 @@
-<!ENTITY foxiewire.sendPage.label     "Kirim Halaman Ini ke">
-<!ENTITY foxiewire.sendLink.label     "Kirim Tautan Ini ke">
-<!ENTITY foxiewire.sendFrame.label    "Kirim Bingkai Ini ke">
+<!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
+%brandDTD;
+
+<!ENTITY foxiewire.sendPage.label               "Kirim Halaman Ini ke">
+<!ENTITY foxiewire.sendLink.label               "Kirim Tautan Ini ke">
+<!ENTITY foxiewire.sendFrame.label              "Kirim Bingkai Ini ke">
+
+<!ENTITY foxiewire.config.title                 "Pilihan FoxieWire">
+
+<!ENTITY foxiewire.config.newPagesIn.label      "Buka halaman kirim di:">
+<!ENTITY foxiewire.config.currentTab.label      "tab yang sedang aktif">
+<!ENTITY foxiewire.config.newTab.label          "tab baru">
+<!ENTITY foxiewire.config.newWindow.label       "jendela baru">
+<!ENTITY foxiewire.config.splitBrowser.label    "browser terbingkai">
+
+<!ENTITY foxiewire.config.tabFocus.caption      "Tab Focus Options">
+<!ENTITY foxiewire.config.selectTab.label       "Aktifkan tab baru">
+<!ENTITY foxiewire.config.backgroundTab.label   "Muat tab di belakang">
+<!ENTITY foxiewire.config.appDefault.label      "Settingan asli &brandShortName;">
+
+<!ENTITY foxiewire.config.SplitBrowser.caption  "Posisi Browser Terbingkai">
+<!ENTITY foxiewire.config.splitTop.label        "Atas">
+<!ENTITY foxiewire.config.splitRight.label      "Kanan">
+<!ENTITY foxiewire.config.splitLeft.label       "Kiri">
+<!ENTITY foxiewire.config.splitBottom.label     "Bawah">
 
