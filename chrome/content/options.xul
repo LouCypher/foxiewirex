@@ -49,9 +49,9 @@
           <caption label="&foxiewire.config.tabFocus.caption;" />
           <radiogroup id="tab-focus-pref"
                       preference="extensions.FoxieWire.backgroundTab">
+            <radio label="&foxiewire.config.appDefault.label;" value="2" />
             <radio label="&foxiewire.config.selectTab.label;" value="0" />
             <radio label="&foxiewire.config.backgroundTab.label;" value="1" />
-            <radio label="&foxiewire.config.appDefault.label;" value="2" />
           </radiogroup>
         </groupbox>
       </vbox>
@@ -62,8 +62,8 @@
           <radiogroup id="split-browser-pref"
                       preference="extensions.FoxieWire.SplitBrowser.position">
             <radio label="&foxiewire.config.splitTop.label;" value="4" />
-            <radio label="&foxiewire.config.splitRight.label;" value="2" />
-            <radio label="&foxiewire.config.splitLeft.label;" value="1" />
+            <!--radio label="&foxiewire.config.splitRight.label;" value="2" />
+            <radio label="&foxiewire.config.splitLeft.label;" value="1" /-->
             <radio label="&foxiewire.config.splitBottom.label;" value="8" />
           </radiogroup>
         </groupbox>
