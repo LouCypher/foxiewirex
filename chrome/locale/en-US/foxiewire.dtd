@@ -1,26 +1,4 @@
-<!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
-%brandDTD;
-
-<!ENTITY foxiewire.sendPage.label               "Send This Page to">
-<!ENTITY foxiewire.sendLink.label               "Send This Link to">
-<!ENTITY foxiewire.sendFrame.label              "Send This Frame to">
-
-<!ENTITY foxiewire.config.title                 "FoxieWire Options">
-
-<!ENTITY foxiewire.config.newPagesIn.label      "Submit page should be opened in">
-<!ENTITY foxiewire.config.currentTab.label      "current tab">
-<!ENTITY foxiewire.config.newTab.label          "a new tab">
-<!ENTITY foxiewire.config.newWindow.label       "a new window">
-<!ENTITY foxiewire.config.splitBrowser.label    "a split browser">
-
-<!ENTITY foxiewire.config.tabFocus.caption      "Tab Focus Options">
-<!ENTITY foxiewire.config.selectTab.label       "Select new tab">
-<!ENTITY foxiewire.config.backgroundTab.label   "Load in background">
-<!ENTITY foxiewire.config.appDefault.label      "&brandShortName; default">
-
-<!ENTITY foxiewire.config.SplitBrowser.caption  "Split Browser Position">
-<!ENTITY foxiewire.config.splitTop.label        "Above">
-<!ENTITY foxiewire.config.splitRight.label      "Right">
-<!ENTITY foxiewire.config.splitLeft.label       "Left">
-<!ENTITY foxiewire.config.splitBottom.label     "Below">
+<!ENTITY foxiewire.sendPage.label     "Send This Page to">
+<!ENTITY foxiewire.sendLink.label     "Send This Link to">
+<!ENTITY foxiewire.sendFrame.label    "Send This Frame to">
 
