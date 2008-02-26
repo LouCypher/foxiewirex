@@ -1,64 +1,18 @@
 var FoxieWire = {
 
-  URL: "http://www.foxiewire.com/submit.php?sourceid=FoxieWire+Extension&url=",
-
-  get pref() {
-    return Components.classes["@mozilla.org/preferences-service;1"]
-                     .getService(Components.interfaces.nsIPrefBranch)
-                     .getBranch("extensions.FoxieWire.");
-  },
-
-  get prefOpen() {
-    return this.pref.getIntPref("openSubmit");
-  },
-
-  get prefBackgroundTab() {
-    switch (this.pref.getIntPref("backgroundTab")) {
-      case 0: return false;
-      case 1: return true;
-      default: return null;
-    }
-  },
-
   isValidScheme: function foxiewire_isValidScheme(aProtocol) {
-    var reg = new RegExp("^https?|^ftp", "i");
+    var reg = new RegExp("https?|ftp", "i");
     return reg.test(aProtocol);
-  },
-
-  openPrefs: function foxiewire_openPrefs() {
-    openDialog("chrome://foxiewire/content/options.xul",
-               "foxiewire-config",
-               "chrome, dialog, centerscreen");
   },
 
   submit: function foxiewire_submit(aURL) {
     if (this.isValidScheme(aURL)) {
-      switch (this.prefOpen) {
-        case 0: // current tab
-          loadURI(this.URL + encodeURIComponent(aURL));
-          break;
-        case 2: // new window
-          window.openDialog(getBrowserURL(), "_blank", "chrome,all,dialog=no",
-                            this.URL + encodeURIComponent(aURL));
-          break;
-        case 3: // split browser
-          if (typeof SplitBrowser == "object") {
-            SplitBrowser.addSubBrowser(this.URL + encodeURIComponent(aURL), null,
-                                       this.pref.getIntPref("SplitBrowser.position"))
-            break;
-          }
-        default: // new tab
-          gBrowser.loadOneTab(this.URL + encodeURIComponent(aURL),
-                              null, null, null, this.prefBackgroundTab);
-      }
-    } else { // unsupported protocol
-      var STRINGS = document.getElementById("foxiewire-strings");
-      var scheme = [aURL.match(/^\S[^\:]+\:/).toString()];
-      var string = STRINGS.getFormattedString("invalidScheme", scheme);
-
-      var PROMPTS = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
-                              .getService(Components.interfaces.nsIPromptService);
-      PROMPTS.alert(null, "FoxieWire", string);
+      gBrowser.loadOneTab("http://www.foxiewire.com/submit.php?url=" +
+                          encodeURIComponent(aURL) +
+                          "&sourceid=FoxieWire+Extension")
+    } else {
+      var strings = document.getElementById("foxiewire-strings");
+      alert(aURL.match(/^\w+\:/) + " " + strings.getString("invalidScheme"));
     }
   },
 
