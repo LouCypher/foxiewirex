@@ -14,9 +14,9 @@ var FoxieWire = {
 
   get prefBackgroundTab() {
     switch (this.pref.getIntPref("backgroundTab")) {
-      case 0: return false;
-      case 1: return true;
-      default: return null;
+      case 0: return false; // focus new tab
+      case 1: return true;  // load tab in background
+      default: return null; // use Firefox default
     }
   },
 
@@ -91,6 +91,36 @@ var FoxieWire = {
     cm.addEventListener("popupshowing", function(e) {
       FoxieWire.initContext(e);
     }, false);
+  }
+}
+
+FoxieWire.buttonObserver = {
+  onDrop: function foxiewireButtonObserver_onDrop(aEvent, aXferData, aDragSession) {
+    var split = aXferData.data.split("\n");
+    var url = split[0];
+    if (url != aXferData.data) {
+      var dialogArgs = {name:split[1], url:url};
+      FoxieWire.submit(dialogArgs.url);
+    }
+  },
+
+  onDragOver: function foxiewireButtonObserver_onDragOver(aEvent, aFlavour, aDragSession) {
+    var STRINGS = document.getElementById("foxiewire-strings");
+    FoxieWire.setStatus(STRINGS.getString("dropLinkOnButt"));
+    aDragSession.dragAction = Components.interfaces.nsIDragService
+                                                   .DRAGDROP_ACTION_LINK;
+  },
+
+  onDragExit: function foxiewireButtonObserver_onDragExit(aEvent, aDragSession) {
+    FoxieWire.setStatus("");
+  },
+
+  getSupportedFlavours: function foxiewireButtonObserver_getSupportedFlavours() {
+    var flavourSet = new FlavourSet;
+    flavourSet.appendFlavour("application/x-moz-file", "nsIFile");
+    flavourSet.appendFlavour("text/x-moz-url");
+    flavourSet.appendFlavour("text/unicode");
+    return flavourSet;
   }
 }
 
