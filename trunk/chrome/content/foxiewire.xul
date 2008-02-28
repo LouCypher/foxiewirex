@@ -70,6 +70,15 @@
       onmouseover="FoxieWire.setStatus(gContextMenu.target.ownerDocument.documentURI);"
       onmouseout="FoxieWire.setStatus('');" />
 
+    <menuitem
+      id="context-foxiewire-submitselection"
+      class="context-foxiewire menuitem-iconic"
+      label="&foxiewire.sendSelection.label; FoxieWire"
+      insertafter="context-searchselect"
+      oncommand="if(event.shiftKey) FoxieWire.openPrefs();
+ else FoxieWire.submitStringAsURI(FoxieWire.getSelectionFromDocument(gContextMenu.target.ownerDocument));"
+      onclick="if (event.button == 1) FoxieWire.openPrefs();" />
+
   </menupopup>
 
 </overlay>
