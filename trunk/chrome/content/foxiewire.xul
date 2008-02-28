@@ -7,6 +7,7 @@
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
   <script type="application/x-javascript" src="foxiewire.js" />
+  <script type="application/x-javascript" src="dragdrop.js" />
 
 	<stringbundleset id="stringbundleset">
     <stringbundle id="foxiewire-strings" src="chrome://foxiewire/locale/foxiewire.properties"/>
@@ -22,9 +23,9 @@
       onclick="if (event.button == 1) FoxieWire.openPrefs();"
       onmouseover="FoxieWire.setStatus(content.document.documentURI);"
       onmouseout="FoxieWire.setStatus('');"
-      ondragover="nsDragAndDrop.dragOver(event, FoxieWire.buttonObserver);"
-      ondragdrop="nsDragAndDrop.drop(event, FoxieWire.buttonObserver);"
-      ondragexit="nsDragAndDrop.dragExit(event, FoxieWire.buttonObserver);" />
+      ondragover="nsDragAndDrop.dragOver(event, FoxieWire.dndObserver);"
+      ondragdrop="nsDragAndDrop.drop(event, FoxieWire.dndObserver);"
+      ondragexit="nsDragAndDrop.dragExit(event, FoxieWire.dndObserver);" />
   </toolbarpalette>
 
   <menupopup id="menu_ToolsPopup">

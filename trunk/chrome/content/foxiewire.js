@@ -2,6 +2,15 @@ var FoxieWire = {
 
   URL: "http://www.foxiewire.com/submit.php?sourceid=FoxieWire+Extension&url=",
 
+  get stringBundle() {
+    return document.getElementById("foxiewire-strings");
+  },
+
+  get promptService() {
+    return Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+                     .getService(Components.interfaces.nsIPromptService);
+  },
+
   get pref() {
     return Components.classes["@mozilla.org/preferences-service;1"]
                      .getService(Components.interfaces.nsIPrefBranch)
@@ -52,13 +61,9 @@ var FoxieWire = {
                               null, null, null, this.prefBackgroundTab);
       }
     } else { // unsupported protocol
-      var STRINGS = document.getElementById("foxiewire-strings");
       var scheme = [aURL.match(/^\S[^\:]+\:/).toString()];
-      var string = STRINGS.getFormattedString("invalidScheme", scheme);
-
-      var PROMPTS = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
-                              .getService(Components.interfaces.nsIPromptService);
-      PROMPTS.alert(null, "FoxieWire", string);
+      var string = this.stringBundle.getFormattedString("invalidScheme", scheme);
+      this.promptService.alert(null, "FoxieWire", string);
     }
   },
 
@@ -91,36 +96,6 @@ var FoxieWire = {
     cm.addEventListener("popupshowing", function(e) {
       FoxieWire.initContext(e);
     }, false);
-  }
-}
-
-FoxieWire.buttonObserver = {
-  onDrop: function foxiewireButtonObserver_onDrop(aEvent, aXferData, aDragSession) {
-    var split = aXferData.data.split("\n");
-    var url = split[0];
-    if (url != aXferData.data) {
-      var dialogArgs = {name:split[1], url:url};
-      FoxieWire.submit(dialogArgs.url);
-    }
-  },
-
-  onDragOver: function foxiewireButtonObserver_onDragOver(aEvent, aFlavour, aDragSession) {
-    var STRINGS = document.getElementById("foxiewire-strings");
-    FoxieWire.setStatus(STRINGS.getString("dropLinkOnButt"));
-    aDragSession.dragAction = Components.interfaces.nsIDragService
-                                                   .DRAGDROP_ACTION_LINK;
-  },
-
-  onDragExit: function foxiewireButtonObserver_onDragExit(aEvent, aDragSession) {
-    FoxieWire.setStatus("");
-  },
-
-  getSupportedFlavours: function foxiewireButtonObserver_getSupportedFlavours() {
-    var flavourSet = new FlavourSet;
-    flavourSet.appendFlavour("application/x-moz-file", "nsIFile");
-    flavourSet.appendFlavour("text/x-moz-url");
-    flavourSet.appendFlavour("text/unicode");
-    return flavourSet;
   }
 }
 
