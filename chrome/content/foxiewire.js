@@ -34,6 +34,12 @@ var FoxieWire = {
     return reg.test(aProtocol);
   },
 
+  invalidURI: function foxiewire_invalidURI(aString) {
+    var string = this.stringBundle
+                     .getFormattedString("invalidURI", [aString]);
+    this.promptService.alert(null, "FoxieWire", string);
+  },
+
   openPrefs: function foxiewire_openPrefs() {
     openDialog("chrome://foxiewire/content/options.xul",
                "foxiewire-config",
@@ -67,6 +73,18 @@ var FoxieWire = {
     }
   },
 
+  getSelectionFromDocument: function foxiewire_getSelectionFromDocument(aDocument) {
+    return aDocument.getSelection().toString();
+  },
+
+  submitStringAsURI: function foxiewire_submitStringAsURI(aString) {
+    try {
+      this.submit(makeURI(aString).spec);
+    } catch(ex) {
+      this.invalidURI(aString);
+    }
+  },
+
   setStatus: function foxiewire_setStatus(aString) {
     document.getElementById("statusbar-display").label = aString;
   },
@@ -89,6 +107,10 @@ var FoxieWire = {
                           this.isValidScheme(gContextMenu.target
                                                           .ownerDocument
                                                           .location.protocol));
+
+    gContextMenu.showItem("context-foxiewire-submitselection",
+                          gContextMenu.isTextSelected);
+
   },
 
   init: function foxiewire_init(aEvent) {

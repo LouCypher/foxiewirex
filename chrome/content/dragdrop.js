@@ -12,9 +12,7 @@ FoxieWire.dndObserver = {
       try {
         FoxieWire.submit(makeURI(url).spec);
       } catch(ex) {
-        var string = FoxieWire.stringBundle
-                              .getFormattedString("isNotURI", [url]);
-        FoxieWire.promptService.alert(null, "FoxieWire", string);
+        FoxieWire.invalidURI(url);
       }
     }
   },
