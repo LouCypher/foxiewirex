@@ -29,7 +29,6 @@ FoxieWire.dndObserver = {
 
   getSupportedFlavours: function foxiewireButtonObserver_getSupportedFlavours() {
     var flavourSet = new FlavourSet;
-    flavourSet.appendFlavour("application/x-moz-file", "nsIFile");
     flavourSet.appendFlavour("text/x-moz-url");
     flavourSet.appendFlavour("text/unicode");
     return flavourSet;
