@@ -15,9 +15,9 @@
 <!ENTITY foxiewire.config.splitBrowser.label    "a split browser">
 
 <!ENTITY foxiewire.config.tabFocus.caption      "Tab Focus Options">
+<!ENTITY foxiewire.config.appDefault.label      "Use &brandShortName; default">
 <!ENTITY foxiewire.config.selectTab.label       "Focus new tab">
 <!ENTITY foxiewire.config.backgroundTab.label   "Keep current tab">
-<!ENTITY foxiewire.config.appDefault.label      "Use &brandShortName; default">
 
 <!ENTITY foxiewire.config.SplitBrowser.caption  "Split Browser Position">
 <!ENTITY foxiewire.config.splitTop.label        "Above">
