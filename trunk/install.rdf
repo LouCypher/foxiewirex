@@ -6,7 +6,7 @@
   <Description about="urn:mozilla:install-manifest">
     <em:id>foxiewire@foxiewire.com</em:id>
     <em:name>FoxieWire</em:name>
-    <em:version>0.2</em:version>
+    <em:version>0.2.1a.20080315.01</em:version>
     <em:description>Submit web pages, links, or frames to FoxieWire from context menu or toolbar button.</em:description>
     <em:creator>FoxieWire</em:creator>
     <em:contributor>LouCypher (codes) - http://loucypher.wordpress.com/</em:contributor>
@@ -20,7 +20,7 @@
       <Description>
         <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
         <em:minVersion>1.5</em:minVersion>
-        <em:maxVersion>3.0.*</em:maxVersion>
+        <em:maxVersion>3.0b4</em:maxVersion>
       </Description>
     </em:targetApplication>
 
@@ -41,6 +41,15 @@
         <em:maxVersion>9.0.*</em:maxVersion>
       </Description>
     </em:targetApplication>
+
+    <!-- eMusic Remote -->
+    <em:targetApplication>
+    <Description>
+      <em:id>dlm@emusic.com</em:id>
+      <em:minVersion>1.0</em:minVersion>
+      <em:maxVersion>1.0.0.*</em:maxVersion>
+    </Description>
+   </em:targetApplication>
 
   </Description>
 </RDF>
