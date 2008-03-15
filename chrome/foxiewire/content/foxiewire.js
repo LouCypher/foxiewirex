@@ -114,6 +114,9 @@ var FoxieWire = {
   },
 
   init: function foxiewire_init(aEvent) {
+    if (typeof nsContextMenu != "function") {
+      return;
+    }
     var cm = document.getElementById("contentAreaContextMenu");
     cm.addEventListener("popupshowing", function(e) {
       FoxieWire.initContext(e);

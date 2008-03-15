@@ -42,6 +42,7 @@
       class="context-foxiewire menuitem-iconic"
       label="&foxiewire.sendLink.label; FoxieWire"
       insertafter="context-bookmarklink"
+      hidden="true"
       oncommand="if(event.shiftKey) FoxieWire.openPrefs();
  else FoxieWire.submit(gContextMenu.linkURL);"
       onclick="if (event.button == 1) FoxieWire.openPrefs();"
@@ -53,6 +54,7 @@
       class="context-foxiewire menuitem-iconic"
       label="&foxiewire.sendPage.label; FoxieWire"
       insertafter="context-bookmarkpage"
+      hidden="true"
       oncommand="if(event.shiftKey) FoxieWire.openPrefs();
  else FoxieWire.submit(content.document.documentURI);"
       onclick="if (event.button == 1) FoxieWire.openPrefs();"
@@ -64,6 +66,7 @@
       class="context-foxiewire menuitem-iconic"
       label="&foxiewire.sendFrame.label; FoxieWire"
       insertafter="frame"
+      hidden="true"
       oncommand="if(event.shiftKey) FoxieWire.openPrefs();
  else FoxieWire.submit(gContextMenu.target.ownerDocument.documentURI);"
       onclick="if (event.button == 1) FoxieWire.openPrefs();"
@@ -75,6 +78,7 @@
       class="context-foxiewire menuitem-iconic"
       label="&foxiewire.sendSelection.label; FoxieWire"
       insertafter="context-searchselect"
+      hidden="true"
       oncommand="if(event.shiftKey) FoxieWire.openPrefs();
  else FoxieWire.submitStringAsURI(FoxieWire.getSelectionFromDocument(gContextMenu.target.ownerDocument));"
       onclick="if (event.button == 1) FoxieWire.openPrefs();" />

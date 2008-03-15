@@ -13,7 +13,7 @@ var FoxieWire_Config = {
     node.disabled = !aElm.selected;
   },
 
-  getMainWindow: function foxiewireConfig_getMainWindow() {
+  get mainWindow() {
     var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]
                                 .getService();
     var wmInterface = wm.QueryInterface(Components.interfaces.nsIWindowMediator);
@@ -25,7 +25,9 @@ var FoxieWire_Config = {
   },
 
   get splitBrowser() {
-    return (typeof this.getMainWindow().SplitBrowser == "object");
+    return this.mainWindow
+            ? (typeof this.mainWindow.SplitBrowser == "object")
+            : null;
   },
 
   init: function() {
