@@ -1,9 +1,19 @@
+#foxiewire-urlbar-button,
 #foxiewire-button {
   list-style-image: url("foxiewire_24.png");
 }
 
 .context-foxiewire,
+toolbar[iconsize="small"] #foxiewire-urlbar-button,
 toolbar[iconsize="small"] #foxiewire-button {
   list-style-image: url("foxiewire_16.png");
+}
+
+#foxiewire-urlbar-button {
+  visibility: collapse;
+}
+
+window#mainplayer #foxiewire-urlbar-button {
+  visibility: visible;
 }
 

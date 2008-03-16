@@ -8,6 +8,10 @@ var FoxieWire_Config = {
     return this.prefService.getBranch("extensions.FoxieWire.");
   },
 
+  get stringBundle() {
+    return document.getElementById("foxiewire-strings");
+  },
+
   toggle: function foxiewireConfig_toggle(aElm, aID) {
     var node = document.getElementById(aID);
     node.disabled = !aElm.selected;
@@ -36,6 +40,12 @@ var FoxieWire_Config = {
     var split = document.getElementById("open-split-browser");
     var splitPref = document.getElementById("split-browser-pref");
     var splitBox = document.getElementById("split-browser-groupbox");
+
+    if (!this.mainWindow) {
+      document.getElementById("open-new-window")
+              .setAttribute("label",  this.stringBundle
+                                          .getString("defaultBrowser"));
+    }
 
     newTabBox.disabled = !newTab.selected;
     splitPref.disabled = !split.selected;;

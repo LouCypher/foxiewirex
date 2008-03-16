@@ -72,6 +72,7 @@
 
   </prefpane>
 
+  <stringbundle id="foxiewire-strings" src="chrome://foxiewire/locale/foxiewire.properties"/>
   <script type="application/x-javascript" src="options.js" />
 
 </prefwindow>
