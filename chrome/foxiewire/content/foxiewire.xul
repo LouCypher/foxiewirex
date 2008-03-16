@@ -29,12 +29,18 @@
   </toolbarpalette>
 
   <toolbaritem id="urlbar-container">
-    <image id="foxiewire-urlbar-button"
-           chromedir="ltr"
-           onclick="switch(event.button){
+    <image
+      id="foxiewire-urlbar-button"
+      chromedir="ltr"
+      onclick="switch(event.button){
 case 0:FoxieWire.submit(content.document.documentURI);break;
 case 1:FoxieWire.openPrefs();
-default:}" />
+default:}"
+      onmouseover="FoxieWire.setStatus(content.document.documentURI);"
+      onmouseout="FoxieWire.setStatus('');"
+      ondragover="nsDragAndDrop.dragOver(event, FoxieWire.dndObserver);"
+      ondragdrop="nsDragAndDrop.drop(event, FoxieWire.dndObserver);"
+      ondragexit="nsDragAndDrop.dragExit(event, FoxieWire.dndObserver);" />
   </toolbaritem>
 
   <menupopup id="menu_ToolsPopup">

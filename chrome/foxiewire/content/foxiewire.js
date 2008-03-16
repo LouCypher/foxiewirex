@@ -65,29 +65,29 @@ var FoxieWire = {
 
   submit: function foxiewire_submit(aURL) {
     if (this.isValidScheme(aURL)) {
+      var url = this.URL + encodeURIComponent(aURL);
       switch (this.prefOpen) {
         case 0: // current tab
-          loadURI(this.URL + encodeURIComponent(aURL));
+          loadURI(url);
           break;
         case 2: // new window
           if (this.mainWindow) { // load in new window
             window.openDialog(getBrowserURL(), "_blank", "chrome,all,dialog=no",
-                              this.URL + encodeURIComponent(aURL));
+                              url);
           } else { // load in default browser
             Components.classes["@mozilla.org/uriloader/external-protocol-service;1"]
                       .getService(Components.interfaces.nsIExternalProtocolService)
-                      .loadURI(this.makeURI(aURL), null);
+                      .loadURI(this.makeURI(url), null);
           }
           break;
         case 3: // split browser
           if (typeof SplitBrowser == "object") {
-            SplitBrowser.addSubBrowser(this.URL + encodeURIComponent(aURL), null,
+            SplitBrowser.addSubBrowser(url, null,
                                        this.pref.getIntPref("SplitBrowser.position"))
             break;
           }
         default: // new tab
-          gBrowser.loadOneTab(this.URL + encodeURIComponent(aURL),
-                              null, null, null, this.prefBackgroundTab);
+          gBrowser.loadOneTab(url, null, null, null, this.prefBackgroundTab);
       }
     } else { // unsupported protocol
       var scheme = [aURL.match(/^\S[^\:]+\:/).toString()];
