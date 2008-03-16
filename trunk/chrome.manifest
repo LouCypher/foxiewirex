@@ -7,7 +7,11 @@ overlay   chrome://browser/content/browser.xul          chrome://foxiewire/conte
 style     chrome://browser/content/browser.xul          chrome://foxiewire/skin/foxiewire.css
 style     chrome://global/content/customizeToolbar.xul  chrome://foxiewire/skin/foxiewire.css
 
-#eMusic Remote
+# eMusic Remote
 overlay   chrome://emusic/content/startup.xul           chrome://foxiewire/content/foxiewire.xul
 style     chrome://emusic/content/startup.xul           chrome://foxiewire/skin/foxiewire.css
+
+# Songbird
+overlay   chrome://songbird/content/feathers/basic-layouts/xul/mainplayer.xul           chrome://foxiewire/content/foxiewire.xul
+style     chrome://songbird/content/feathers/basic-layouts/xul/mainplayer.xul           chrome://foxiewire/skin/foxiewire.css
 

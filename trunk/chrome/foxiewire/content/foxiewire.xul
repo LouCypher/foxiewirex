@@ -28,6 +28,15 @@
       ondragexit="nsDragAndDrop.dragExit(event, FoxieWire.dndObserver);" />
   </toolbarpalette>
 
+  <toolbaritem id="urlbar-container">
+    <image id="foxiewire-urlbar-button"
+           chromedir="ltr"
+           onclick="switch(event.button){
+case 0:FoxieWire.submit(content.document.documentURI);break;
+case 1:FoxieWire.openPrefs();
+default:}" />
+  </toolbaritem>
+
   <menupopup id="menu_ToolsPopup">
     <menuitem
       label="&foxiewire.config.title;..."

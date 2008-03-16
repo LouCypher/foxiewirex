@@ -10,7 +10,7 @@ FoxieWire.dndObserver = {
       split = aXferData.data.split(" ");
       url = split[0];
       try {
-        FoxieWire.submit(makeURI(url).spec);
+        FoxieWire.submit(FoxieWire.makeURI(url).spec);
       } catch(ex) {
         FoxieWire.invalidURI(url);
       }

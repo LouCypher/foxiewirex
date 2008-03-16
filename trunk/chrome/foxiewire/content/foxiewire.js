@@ -46,6 +46,23 @@ var FoxieWire = {
                "chrome, dialog, centerscreen");
   },
 
+  get mainWindow() {
+    var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]
+                                .getService();
+    var wmInterface = wm.QueryInterface(Components.interfaces.nsIWindowMediator);
+    var eb = wmInterface.getEnumerator("navigator:browser");
+    if (eb.hasMoreElements()) {
+      return eb.getNext().QueryInterface(Components.interfaces.nsIDOMWindow);
+    }
+    return null;
+  },
+
+  makeURI: function foxiewire_makeURI(aURL, aOriginCharset, aBaseURI) {
+    var ioService = Components.classes['@mozilla.org/network/io-service;1']
+                              .getService(Components.interfaces.nsIIOService);
+    return ioService.newURI(aURL, aOriginCharset, aBaseURI);
+  },
+
   submit: function foxiewire_submit(aURL) {
     if (this.isValidScheme(aURL)) {
       switch (this.prefOpen) {
@@ -53,8 +70,14 @@ var FoxieWire = {
           loadURI(this.URL + encodeURIComponent(aURL));
           break;
         case 2: // new window
-          window.openDialog(getBrowserURL(), "_blank", "chrome,all,dialog=no",
-                            this.URL + encodeURIComponent(aURL));
+          if (this.mainWindow) { // load in new window
+            window.openDialog(getBrowserURL(), "_blank", "chrome,all,dialog=no",
+                              this.URL + encodeURIComponent(aURL));
+          } else { // load in default browser
+            Components.classes["@mozilla.org/uriloader/external-protocol-service;1"]
+                      .getService(Components.interfaces.nsIExternalProtocolService)
+                      .loadURI(this.makeURI(aURL), null);
+          }
           break;
         case 3: // split browser
           if (typeof SplitBrowser == "object") {
@@ -79,7 +102,7 @@ var FoxieWire = {
 
   submitStringAsURI: function foxiewire_submitStringAsURI(aString) {
     try {
-      this.submit(makeURI(aString).spec);
+      this.submit(this.makeURI(aString).spec);
     } catch(ex) {
       this.invalidURI(aString);
     }
@@ -111,6 +134,13 @@ var FoxieWire = {
     gContextMenu.showItem("context-foxiewire-submitselection",
                           gContextMenu.isTextSelected);
 
+  },
+
+  initSongbirdContext: function foxiewire_initSongbirdContext(aEvent) {
+    var elem = document.popupNode;
+    while (elem && elem.tagName && elem.tagName.toLowerCase() != "a") {
+      elem = elem.parentNode;
+    }
   },
 
   init: function foxiewire_init(aEvent) {
