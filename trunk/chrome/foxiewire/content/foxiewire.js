@@ -109,7 +109,14 @@ var FoxieWire = {
   },
 
   setStatus: function foxiewire_setStatus(aString) {
-    document.getElementById("statusbar-display").label = aString;
+    var status = document.getElementById("sb-status-bar-status-label") ||
+                 document.getElementById("statusbar-display");
+    if (status.localName == "statusbarpanel") {
+      status.label = aString;
+    } else {
+      status.desc.value = aString;
+    }
+    
   },
 
   initContext: function foxiewire_initContext(aEvent) {
