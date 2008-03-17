@@ -29,13 +29,12 @@
   </toolbarpalette>
 
   <toolbaritem id="urlbar-container">
-    <image
+    <toolbarbutton
       id="foxiewire-urlbar-button"
-      chromedir="ltr"
-      onclick="switch(event.button){
-case 0:FoxieWire.submit(content.document.documentURI);break;
-case 1:FoxieWire.openPrefs();
-default:}"
+      tooltiptext="&foxiewire.sendPage.label; FoxieWire"
+      oncommand="if(event.shiftKey) FoxieWire.openPrefs();
+ else FoxieWire.submit(content.document.documentURI);"
+      onclick="if (event.button == 1) FoxieWire.openPrefs();"
       onmouseover="FoxieWire.setStatus(content.document.documentURI);"
       onmouseout="FoxieWire.setStatus('');"
       ondragover="nsDragAndDrop.dragOver(event, FoxieWire.dndObserver);"
