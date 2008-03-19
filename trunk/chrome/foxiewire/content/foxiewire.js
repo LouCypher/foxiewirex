@@ -109,11 +109,11 @@ var FoxieWire = {
   },
 
   setStatus: function foxiewire_setStatus(aString) {
-    var status = document.getElementById("sb-status-bar-status-label") ||
+    var status = document.getElementById("sb-status-bar-status-label") || // Songbird
                  document.getElementById("statusbar-display");
     if (status.localName == "statusbarpanel") {
       status.label = aString;
-    } else {
+    } else { // Songbird
       status.desc.value = aString;
     }
     
@@ -139,7 +139,10 @@ var FoxieWire = {
                                                           .location.protocol));
 
     gContextMenu.showItem("context-foxiewire-submitselection",
-                          gContextMenu.isTextSelected);
+                          gContextMenu.isTextSelected &&
+                          this.isValidScheme(
+                              this.getSelectionFromDocument(
+                                  gContextMenu.target.ownerDocument)));
 
   },
 

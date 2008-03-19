@@ -4,7 +4,7 @@
 <!ENTITY foxiewire.sendPage.label               "Submit This Page to">
 <!ENTITY foxiewire.sendLink.label               "Submit This Link to">
 <!ENTITY foxiewire.sendFrame.label              "Submit This Frame to">
-<!ENTITY foxiewire.sendSelection.label          "Submit Selection as Link to">
+<!ENTITY foxiewire.sendSelection.label          "Submit Selection as URL to">
 
 <!ENTITY foxiewire.config.title                 "FoxieWire Options">
 
