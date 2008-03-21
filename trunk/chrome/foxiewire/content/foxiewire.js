@@ -96,8 +96,8 @@ var FoxieWire = {
     }
   },
 
-  getSelectionFromDocument: function foxiewire_getSelectionFromDocument(aDocument) {
-    return aDocument.getSelection().toString();
+  get selectedText() {
+    return document.commandDispatcher.focusedWindow.getSelection().toString();
   },
 
   submitStringAsURI: function foxiewire_submitStringAsURI(aString) {
@@ -140,9 +140,7 @@ var FoxieWire = {
 
     gContextMenu.showItem("context-foxiewire-submitselection",
                           gContextMenu.isTextSelected &&
-                          this.isValidScheme(
-                              this.getSelectionFromDocument(
-                                  gContextMenu.target.ownerDocument)));
+                          this.isValidScheme(this.selectedText));
 
   },
 
