@@ -94,9 +94,9 @@
       insertafter="context-searchselect"
       hidden="true"
       oncommand="if(event.shiftKey) FoxieWire.openPrefs();
- else FoxieWire.submitStringAsURI(FoxieWire.getSelectionFromDocument(gContextMenu.target.ownerDocument));"
+ else FoxieWire.submitStringAsURI(FoxieWire.selectedText);"
       onclick="if (event.button == 1) FoxieWire.openPrefs();"
-      onmouseover="FoxieWire.setStatus(FoxieWire.getSelectionFromDocument(gContextMenu.target.ownerDocument));"
+      onmouseover="FoxieWire.setStatus(FoxieWire.selectedText);"
       onmouseout="FoxieWire.setStatus('');" />
 
   </menupopup>
