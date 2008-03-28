@@ -141,21 +141,25 @@ var FoxieWire = {
     gContextMenu.showItem("context-foxiewire-submitselection",
                           gContextMenu.isTextSelected &&
                           this.isValidScheme(this.selectedText));
-
-  },
-
-  initSongbirdContext: function foxiewire_initSongbirdContext(aEvent) {
-    var elem = document.popupNode;
-    while (elem && elem.tagName && elem.tagName.toLowerCase() != "a") {
-      elem = elem.parentNode;
-    }
   },
 
   init: function foxiewire_init(aEvent) {
-    if (typeof nsContextMenu != "function") {
-      return;
-    }
     var cm = document.getElementById("contentAreaContextMenu");
+    if (typeof nsContextMenu != "function") {
+      cm.setAttribute("onpopupshowing",
+                      cm.hasAttribute("onpopupshowing")
+                        ? "if (event.target != this) return true; " +
+                          "gContextMenu = new fxContextMenu(this, window.getBrowser()); " +
+                          cm.getAttribute("onpopupshowing")
+                        : "if (event.target != this) return true; " +
+                          "gContextMenu = new fxContextMenu(this, window.getBrowser())");
+
+      cm.setAttribute("onpopuphiding",
+                      cm.hasAttribute("onpopuphiding")
+                        ? "if (event.target == this) gContextMenu = null; " +
+                          cm.getAttribute("onpopuphiding")
+                        : "if (event.target == this) gContextMenu = null;");
+    }
     cm.addEventListener("popupshowing", function(e) {
       FoxieWire.initContext(e);
     }, false);
