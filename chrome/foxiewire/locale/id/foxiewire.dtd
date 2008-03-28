@@ -4,9 +4,9 @@
 <!ENTITY foxiewire.sendPage.label               "Kirim Halaman Ini ke">
 <!ENTITY foxiewire.sendLink.label               "Kirim Tautan Ini ke">
 <!ENTITY foxiewire.sendFrame.label              "Kirim Bingkai Ini ke">
-<!ENTITY foxiewire.sendSelection.label          "Kirim teks terpilih sebagai tautan ke">
+<!ENTITY foxiewire.sendSelection.label          "Kirim Teks Terpilih Sebagai Tautan ke">
 
-<!ENTITY foxiewire.config.title                 "Pilihan FoxieWire">
+<!ENTITY foxiewire.config.title                 "Pengaturan FoxieWire">
 
 <!ENTITY foxiewire.config.newPagesIn.label      "Buka halaman kirim di:">
 <!ENTITY foxiewire.config.currentTab.label      "tab yang sedang aktif">
@@ -14,8 +14,8 @@
 <!ENTITY foxiewire.config.newWindow.label       "jendela baru">
 <!ENTITY foxiewire.config.splitBrowser.label    "browser terbingkai">
 
-<!ENTITY foxiewire.config.tabFocus.caption      "Pilihan Tab">
-<!ENTITY foxiewire.config.appDefault.label      "Pakai settingan asli &brandShortName;">
+<!ENTITY foxiewire.config.tabFocus.caption      "Pengaturan Tab">
+<!ENTITY foxiewire.config.appDefault.label      "Pakai pengaturan default &brandShortName;">
 <!ENTITY foxiewire.config.selectTab.label       "Aktifkan tab baru">
 <!ENTITY foxiewire.config.backgroundTab.label   "Tetap di tab yang sedang aktif">
 
