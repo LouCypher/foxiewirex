@@ -1,6 +1,6 @@
 FoxieWire.dndObserver = {
 
-  onDrop: function foxiewireButtonObserver_onDrop(aEvent, aXferData, aDragSession) {
+  onDrop: function foxiewireDNDObserver_onDrop(aEvent, aXferData, aDragSession) {
     var split = aXferData.data.split("\n");
     var url = split[0];
     if (url != aXferData.data) {
@@ -17,17 +17,17 @@ FoxieWire.dndObserver = {
     }
   },
 
-  onDragOver: function foxiewireButtonObserver_onDragOver(aEvent, aFlavour, aDragSession) {
+  onDragOver: function foxiewireDNDObserver_onDragOver(aEvent, aFlavour, aDragSession) {
     FoxieWire.setStatus(FoxieWire.stringBundle.getString("dropLinkOnButt"));
     aDragSession.dragAction = Components.interfaces.nsIDragService
                                                    .DRAGDROP_ACTION_LINK;
   },
 
-  onDragExit: function foxiewireButtonObserver_onDragExit(aEvent, aDragSession) {
+  onDragExit: function foxiewireDNDObserver_onDragExit(aEvent, aDragSession) {
     FoxieWire.setStatus("");
   },
 
-  getSupportedFlavours: function foxiewireButtonObserver_getSupportedFlavours() {
+  getSupportedFlavours: function foxiewireDNDObserver_getSupportedFlavours() {
     var flavourSet = new FlavourSet;
     flavourSet.appendFlavour("text/x-moz-url");
     flavourSet.appendFlavour("text/unicode");

@@ -8,6 +8,7 @@
 
   <script type="application/x-javascript" src="foxiewire.js" />
   <script type="application/x-javascript" src="dragdrop.js" />
+  <script type="application/x-javascript" src="nsContextMenu.js" />
 
 	<stringbundleset id="stringbundleset">
     <stringbundle id="foxiewire-strings" src="chrome://foxiewire/locale/foxiewire.properties"/>
@@ -56,7 +57,6 @@
       class="context-foxiewire menuitem-iconic"
       label="&foxiewire.sendLink.label; FoxieWire"
       insertafter="context-bookmarklink"
-      hidden="true"
       oncommand="if(event.shiftKey) FoxieWire.openPrefs();
  else FoxieWire.submit(gContextMenu.linkURL);"
       onclick="if (event.button == 1) FoxieWire.openPrefs();"
@@ -68,7 +68,6 @@
       class="context-foxiewire menuitem-iconic"
       label="&foxiewire.sendPage.label; FoxieWire"
       insertafter="context-bookmarkpage"
-      hidden="true"
       oncommand="if(event.shiftKey) FoxieWire.openPrefs();
  else FoxieWire.submit(content.document.documentURI);"
       onclick="if (event.button == 1) FoxieWire.openPrefs();"
@@ -80,7 +79,6 @@
       class="context-foxiewire menuitem-iconic"
       label="&foxiewire.sendFrame.label; FoxieWire"
       insertafter="frame"
-      hidden="true"
       oncommand="if(event.shiftKey) FoxieWire.openPrefs();
  else FoxieWire.submit(gContextMenu.target.ownerDocument.documentURI);"
       onclick="if (event.button == 1) FoxieWire.openPrefs();"
@@ -92,7 +90,6 @@
       class="context-foxiewire menuitem-iconic"
       label="&foxiewire.sendSelection.label; FoxieWire"
       insertafter="context-searchselect"
-      hidden="true"
       oncommand="if(event.shiftKey) FoxieWire.openPrefs();
  else FoxieWire.submitStringAsURI(FoxieWire.selectedText);"
       onclick="if (event.button == 1) FoxieWire.openPrefs();"
