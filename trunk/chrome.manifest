@@ -15,3 +15,7 @@ style     chrome://emusic/content/startup.xul           chrome://foxiewire/skin/
 overlay   chrome://songbird/content/feathers/basic-layouts/xul/mainplayer.xul           chrome://foxiewire/content/foxiewire.xul
 style     chrome://songbird/content/feathers/basic-layouts/xul/mainplayer.xul           chrome://foxiewire/skin/foxiewire.css
 
+# Songbird - Flyerfox feather
+overlay   chrome://flyerfox/content/mainplayer.xul      chrome://foxiewire/content/foxiewire.xul
+style     chrome://flyerfox/content/mainplayer.xul      chrome://foxiewire/skin/foxiewire.css
+
