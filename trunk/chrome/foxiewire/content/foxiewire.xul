@@ -17,6 +17,7 @@
   <toolbarpalette id="BrowserToolbarPalette">
     <toolbarbutton
       id="foxiewire-button"
+      class="toolbarbutton-1"
       label="FoxieWire"
       tooltiptext="&foxiewire.sendPage.label; FoxieWire"
       oncommand="if(event.shiftKey) FoxieWire.openPrefs();
