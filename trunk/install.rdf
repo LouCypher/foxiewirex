@@ -15,13 +15,15 @@
     <em:iconURL>chrome://foxiewire/skin/foxiewire_32.png</em:iconURL>
     <em:optionsURL>chrome://foxiewire/content/options.xul</em:optionsURL>
     <em:homepageURL>http://www.foxiewire.com/</em:homepageURL>
+    <em:updateURL>http://zoolcar9.lhukie.net/mozilla/update.rdf/</em:updateURL>
+    <em:signature>MIGTMA0GCSqGSIb3DQEBDQUAA4GBAFFa4+FWcziw26BVEIo5AcmELkvnQE+0mjddxN4sF//UxPfeF66KyIMKtdF34IFgP20qnCuRQ/NApflh8K2OAuUBO28e3eCU0CRRLQL6bMCzhjxghOCfHfn3Co2UiibnipTT/7YZKuo7FIAdkspVXBNaurfk5UB9mNrmsSBsGS2X</em:signature>
 
     <!-- Firefox -->
     <em:targetApplication>
       <Description>
         <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
         <em:minVersion>2.0</em:minVersion>
-        <em:maxVersion>3.0pre</em:maxVersion>
+        <em:maxVersion>3.0.*</em:maxVersion>
       </Description>
     </em:targetApplication>
 
@@ -30,7 +32,7 @@
       <Description>
         <em:id>{a463f10c-3994-11da-9945-000d60ca027b}</em:id>
         <em:minVersion>1.0</em:minVersion>
-        <em:maxVersion>1.1</em:maxVersion>
+        <em:maxVersion>1.*</em:maxVersion>
       </Description>
     </em:targetApplication>
 
@@ -43,22 +45,22 @@
       </Description>
     </em:targetApplication>
 
-    <!-- eMusic Remote -->
+    <!-- eMusic DLM -->
     <em:targetApplication>
-    <Description>
-      <em:id>dlm@emusic.com</em:id>
-      <em:minVersion>1.0</em:minVersion>
-      <em:maxVersion>1.0.0.*</em:maxVersion>
-    </Description>
-   </em:targetApplication>
+      <Description>
+        <em:id>dlm@emusic.com</em:id>
+        <em:minVersion>1.0</em:minVersion>
+        <em:maxVersion>1.0.0.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
 
     <!-- Songbird -->
     <em:targetApplication>
-    <Description>
-      <em:id>songbird@songbirdnest.com</em:id>
-      <em:minVersion>0.4</em:minVersion>
-      <em:maxVersion>1.0</em:maxVersion>
-    </Description>
+      <Description>
+        <em:id>songbird@songbirdnest.com</em:id>
+        <em:minVersion>0.4</em:minVersion>
+        <em:maxVersion>0.5.*</em:maxVersion>
+      </Description>
    </em:targetApplication>
 
   </Description>
