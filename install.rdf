@@ -15,9 +15,6 @@
     <em:iconURL>chrome://foxiewire/skin/foxiewire_32.png</em:iconURL>
     <em:optionsURL>chrome://foxiewire/content/options.xul</em:optionsURL>
     <em:homepageURL>http://www.foxiewire.com/</em:homepageURL>
-    <em:updateURL>http://zoolcar9.lhukie.net/mozilla/update.rdf</em:updateURL>
-    <em:signature>MIGTMA0GCSqGSIb3DQEBDQUAA4GBAFFa4+FWcziw26BVEIo5AcmELkvnQE+0mjddxN4sF//UxPfeF66KyIMKtdF34IFgP20qnCuRQ/NApflh8K2OAuUBO28e3eCU0CRRLQL6bMCzhjxghOCfHfn3Co2UiibnipTT/7YZKuo7FIAdkspVXBNaurfk5UB9mNrmsSBsGS2X</em:signature>
-    <em:updateKey>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDkgbIBGFoutT2dt/3b20NjJGgSXJLWNvSazNw9Ae7nDsNjaoTixACwrbu82oLf++Hy8+fG1xp18XUENiZZuOvahs4Vyb44V2g5ilyqkp+Wun5y8x1xbLnyB8OWHmm7Gvpl0F5tIUVybzccKNE3C4NZOvgjgfriX+d03S1alTa+wwIDAQAB</em:updateKey>
 
     <!-- Firefox -->
     <em:targetApplication>
