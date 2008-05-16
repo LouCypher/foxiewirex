@@ -116,7 +116,6 @@ var FoxieWire = {
     } else { // Songbird
       status.desc.value = aString;
     }
-    
   },
 
   initContext: function foxiewire_initContext(aEvent) {
