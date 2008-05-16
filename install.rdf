@@ -6,7 +6,7 @@
   <Description about="urn:mozilla:install-manifest">
     <em:id>foxiewire@foxiewire.com</em:id>
     <em:name>FoxieWire</em:name>
-    <em:version>0.3</em:version>
+    <em:version>0.3.1</em:version>
     <em:description>Submit web pages, links, or frames to FoxieWire from context menu or toolbar button.</em:description>
     <em:creator>FoxieWire</em:creator>
     <em:developer>LouCypher - http://foxiewirex.googlecode.com/</em:developer>
