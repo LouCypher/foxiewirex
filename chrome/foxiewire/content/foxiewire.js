@@ -1,7 +1,5 @@
 var FoxieWire = {
 
-  URL: "http://www.foxiewire.com/submit.php?sourceid=FoxieWire+Extension&url=",
-
   get stringBundle() {
     return document.getElementById("foxiewire-strings");
   },
@@ -15,6 +13,10 @@ var FoxieWire = {
     return Components.classes["@mozilla.org/preferences-service;1"]
                      .getService(Components.interfaces.nsIPrefBranch)
                      .getBranch("extensions.FoxieWire.");
+  },
+
+  get URL() {
+    return "http://" + this.pref.getCharPref("server") + "/?q=submit";
   },
 
   get prefOpen() {
@@ -63,9 +65,12 @@ var FoxieWire = {
     return ioService.newURI(aURL, aOriginCharset, aBaseURI);
   },
 
-  submit: function foxiewire_submit(aURL) {
+  submit: function foxiewire_submit(aURL, aTitle, aText) {
     if (this.isValidScheme(aURL)) {
-      var url = this.URL + encodeURIComponent(aURL);
+      var url = this.URL + "&url=" + encodeURIComponent(aURL) +
+                (aTitle != undefined ? "&title=" + encodeURIComponent(aTitle) : "") +
+                (aText != undefined ? "&body=" + encodeURIComponent(aText) : "");
+
       switch (this.prefOpen) {
         case 0: // current tab
           loadURI(url);
@@ -116,6 +121,7 @@ var FoxieWire = {
     } else { // Songbird
       status.desc.value = aString;
     }
+    
   },
 
   initContext: function foxiewire_initContext(aEvent) {

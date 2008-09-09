@@ -21,7 +21,8 @@
       label="FoxieWire"
       tooltiptext="&foxiewire.sendPage.label; FoxieWire"
       oncommand="if(event.shiftKey) FoxieWire.openPrefs();
- else FoxieWire.submit(content.document.documentURI);"
+ else FoxieWire.submit(content.document.documentURI,
+ content.document.title, FoxieWire.selectedText);"
       onclick="if (event.button == 1) FoxieWire.openPrefs();"
       onmouseover="FoxieWire.setStatus(content.document.documentURI);"
       onmouseout="FoxieWire.setStatus('');"
@@ -35,7 +36,8 @@
       id="foxiewire-urlbar-button"
       tooltiptext="&foxiewire.sendPage.label; FoxieWire"
       oncommand="if(event.shiftKey) FoxieWire.openPrefs();
- else FoxieWire.submit(content.document.documentURI);"
+ else FoxieWire.submit(content.document.documentURI,
+ content.document.title, FoxieWire.selectedText);"
       onclick="if (event.button == 1) FoxieWire.openPrefs();"
       onmouseover="FoxieWire.setStatus(content.document.documentURI);"
       onmouseout="FoxieWire.setStatus('');"
@@ -48,7 +50,7 @@
     <menuitem
       label="&foxiewire.config.title;..."
       class="context-foxiewire menuitem-iconic"
-      insertafter="menu_preferences"
+      insertbefore="menu_preferences"
       oncommand="FoxieWire.openPrefs();" />
   </menupopup>
 
@@ -59,7 +61,8 @@
       label="&foxiewire.sendLink.label; FoxieWire"
       insertafter="context-bookmarklink"
       oncommand="if(event.shiftKey) FoxieWire.openPrefs();
- else FoxieWire.submit(gContextMenu.linkURL);"
+ else FoxieWire.submit(gContextMenu.linkURL,
+ gContextMenu.linkText(), FoxieWire.selectedText);"
       onclick="if (event.button == 1) FoxieWire.openPrefs();"
       onmouseover="FoxieWire.setStatus(gContextMenu.linkURL);"
       onmouseout="FoxieWire.setStatus('');" />
@@ -70,7 +73,8 @@
       label="&foxiewire.sendPage.label; FoxieWire"
       insertafter="context-bookmarkpage"
       oncommand="if(event.shiftKey) FoxieWire.openPrefs();
- else FoxieWire.submit(content.document.documentURI);"
+ else FoxieWire.submit(content.document.documentURI,
+ content.document.title, FoxieWire.selectedText);"
       onclick="if (event.button == 1) FoxieWire.openPrefs();"
       onmouseover="FoxieWire.setStatus(content.document.documentURI);"
       onmouseout="FoxieWire.setStatus('');" />
@@ -81,7 +85,8 @@
       label="&foxiewire.sendFrame.label; FoxieWire"
       insertafter="frame"
       oncommand="if(event.shiftKey) FoxieWire.openPrefs();
- else FoxieWire.submit(gContextMenu.target.ownerDocument.documentURI);"
+ else FoxieWire.submit(gContextMenu.target.ownerDocument.documentURI,
+ gContextMenu.target.ownerDocument.title, FoxieWire.selectedText);"
       onclick="if (event.button == 1) FoxieWire.openPrefs();"
       onmouseover="FoxieWire.setStatus(gContextMenu.target.ownerDocument.documentURI);"
       onmouseout="FoxieWire.setStatus('');" />
