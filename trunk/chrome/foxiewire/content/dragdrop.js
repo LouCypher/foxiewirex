@@ -5,7 +5,7 @@ FoxieWire.dndObserver = {
     var url = split[0];
     if (url != aXferData.data) {
       var dialogArgs = {name:split[1], url:url};
-      FoxieWire.submit(dialogArgs.url);
+      FoxieWire.submit(dialogArgs.url, dialogArgs.name, FoxieWire.selectedText);
     } else {
       split = aXferData.data.split(" ");
       url = split[0];

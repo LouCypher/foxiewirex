@@ -6,7 +6,7 @@
   <Description about="urn:mozilla:install-manifest">
     <em:id>foxiewire@foxiewire.com</em:id>
     <em:name>FoxieWire</em:name>
-    <em:version>0.3.1</em:version>
+    <em:version>0.4a2</em:version>
     <em:description>Submit web pages, links, or frames to FoxieWire from context menu or toolbar button.</em:description>
     <em:creator>FoxieWire</em:creator>
     <em:developer>LouCypher - http://foxiewirex.googlecode.com/</em:developer>
@@ -21,7 +21,7 @@
       <Description>
         <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
         <em:minVersion>2.0</em:minVersion>
-        <em:maxVersion>3.0.*</em:maxVersion>
+        <em:maxVersion>3.*</em:maxVersion>
       </Description>
     </em:targetApplication>
 
@@ -57,7 +57,7 @@
       <Description>
         <em:id>songbird@songbirdnest.com</em:id>
         <em:minVersion>0.4</em:minVersion>
-        <em:maxVersion>0.5.*</em:maxVersion>
+        <em:maxVersion>0.6.*</em:maxVersion>
       </Description>
    </em:targetApplication>
 
