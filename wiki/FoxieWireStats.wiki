@@ -1,4 +1,4 @@
-#labels Featured
+#labels Deprecated
 =[https://addons.mozilla.org/statistics/addon/6566 FoxieWire Statistics]=
 from [https://addons.mozilla.org/ Mozilla Add-ons]
 
