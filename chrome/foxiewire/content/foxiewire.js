@@ -16,7 +16,7 @@ var FoxieWire = {
   },
 
   get URL() {
-    return "http://" + this.pref.getCharPref("server") + "/?q=submit";
+    return "http://" + this.pref.getCharPref("server") + "/submit";
   },
 
   get prefOpen() {
@@ -67,7 +67,7 @@ var FoxieWire = {
 
   submit: function foxiewire_submit(aURL, aTitle, aText) {
     if (this.isValidScheme(aURL)) {
-      var url = this.URL + "&url=" + encodeURIComponent(aURL) +
+      var url = this.URL + "?url=" + encodeURIComponent(aURL) +
                 (aTitle != undefined ? "&title=" + encodeURIComponent(aTitle) : "") +
                 (aText != undefined ? "&body=" + encodeURIComponent(aText) : "");
 
